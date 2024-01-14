@@ -7,7 +7,7 @@ class Producto
     public static function obtener()
     {
         global $conn;
-        $resultado = $conn->query("SELECT ProductID, NombreProducto ,Descripcion,Precio,  Stock ,FotoProducto FROM producto");
+        $resultado = $conn->query("SELECT ProductID, NombreProducto ,Descripcion,Precio,  Stock ,Ruta FROM producto");
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 

@@ -68,7 +68,7 @@ $Productos = Producto::obtener();
 												<td><?php echo $producto["Descripcion"]?></td>
 												<td>S/. <?php echo $producto["Precio"]?></td>
 												<td><?php echo $producto["Stock"] ?> Unidades</td>
-												<td><img width="100" src="data:<?php echo $row['TipoFoto']; ?>;base64,<?php echo  base64_encode($producto['FotoProducto']); ?>"></td>
+												<td><img width="100" src="<?php echo $producto["Ruta"] ?>"></td>
 											<td>
 													<a class="btn btn-info">
 													<i class="fa fa-check"></i> Stock

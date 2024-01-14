@@ -47,38 +47,35 @@ if (!isset($_SESSION['NombUser']) ){
 
 								</div>
 								<div>
-<form   action="Registar_Producto.php" method="POST" enctype="multipart/form-data">
-<div class="card-body">
-        <p style=" font-size:20px;"><b>Nombre Producto</b></p>
-		
-									
-								
-        <Input class="form-control" style="margin: auto; " name = "Nom" Type Text></P>
-        <p style=" font-size:20px;"><b>Descripcion Producto</b></p>
-        <Input class="form-control" style="margin: auto;"name = "Descip" Type Text></P>
-			<p style=" font-size:20px;"><b>Precio</b></p>
-			<Input class="form-control" style="margin: auto;"name = "Preci" Type="number" min="0"></P>
-				<p style=" font-size:20px;"><b>Stock de entrada</b></p>
-				<Input class="form-control" style="margin: auto;"name = "Stock" Type="number" min="0"></P>
-        <br>
-        <Input class="form-control" style="margin: auto; " Type = "file" name = "Foto">
-            <br><br><br>
-			<div class="text-center mt-3">
-            <Input class="btn btn-success" style="width:350px;
-        height:30px;" name= "Registrar" Type = Submit value = "Registrar">
-            
-			</div>
-            <br>
-			</div>
-            </form>
-		
-		</div>
+		<form action="Registar_Producto.php" method="POST" enctype="multipart/form-data">
+				<div class="card-body">
+					<p style=" font-size:20px;"><b>Nombre Producto</b></p>				
+					<Input class="form-control" style="margin: auto; " name = "Nom" Type Text></P>
+					<p style=" font-size:20px;"><b>Descripcion Producto</b></p>
+					<Input class="form-control" style="margin: auto;"name = "Descip" Type Text></P>
+						<p style=" font-size:20px;"><b>Precio</b></p>
+						<Input class="form-control" style="margin: auto;"name = "Preci" Type="number" min="0"></P>
+							<p style=" font-size:20px;"><b>Stock de entrada</b></p>
+							<Input class="form-control" style="margin: auto;"name = "Stock" Type="number" min="0"></P>
+					<br>
+					<Input class="form-control" style="margin: auto; " Type = "file" name = "Foto">
+						<br><br><br>
+						<div class="text-center mt-3">
+						<Input class="btn btn-success" style="width:350px;
+					height:30px;" name= "Registrar" Type = Submit value = "Registrar">
+						
+						</div>
+						<br>
+						</div>
+		</form>
+					
+					</div>
+								</div>
 							</div>
+
 						</div>
 
 					</div>
-
-				</div>
 			</main>
 			<?php include_once("footer.php")?>
 		</div>

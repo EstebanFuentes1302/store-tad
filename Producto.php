@@ -24,6 +24,8 @@ class Producto
         
     }
 
+    // commit test
+
     public static function eliminar($id)
     {
         global $conn;

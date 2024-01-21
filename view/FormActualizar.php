@@ -30,8 +30,8 @@
 		include_once "../model/BarraLateral.php"; 
 		BarraLateral(2);
 		include_once "../model/Producto.php";
-
-		$productouno = Producto::obtenerUno($_GET["id"]);
+		$p = new Producto;
+		$productouno = $p -> obtenerUno($_GET["id"])[0];
 	?>
 		<div class="main">
 			<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>

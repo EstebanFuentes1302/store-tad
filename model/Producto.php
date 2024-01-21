@@ -46,21 +46,38 @@ class Producto
             //Devuelve un arreglo de objetos, lo que está dentro del body
             return json_decode($response) -> body;
         }catch(Exception $e){
-
+            echo $e;
+            return false;
         }
         
     }
 
     public static function obtenerUno($id)
     {
-        global $conn;
-        $sentencia = $conn->prepare("SELECT * FROM producto WHERE id = ?");
-        $sentencia->bind_param("i", $id);
-        $sentencia->execute();
+        try{
+            $curl = curl_init();
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/products/'.$id,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+
+            //Devuelve el registro como un arreglo con un objeto de producto
+            return json_decode($response) -> body;
+        }catch(Exception $e){
+            echo $e;
+            return false;
+        }
         
-        $resultado = $sentencia->get_result();
-    
-        return $resultado->fetch_object();
         
     }
 

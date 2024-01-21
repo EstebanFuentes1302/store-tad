@@ -52,17 +52,19 @@
             </a>
                 </li>
 
-                    <li class="sidebar-item ">
-                    <a class="sidebar-link" href="https://laboratorio-express.azurewebsites.net/"  target="_blank">
-            <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ir Pagina de la Tienda</span>
-            </a>
-                </li>
+                    
             
                 </ul>
 
 
             </div>
             </nav>';
+
+            // <li class="sidebar-item ">
+            //     <a class="sidebar-link" href="https://laboratorio-express.azurewebsites.net/"  target="_blank">
+            //         <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ir Pagina de la Tienda</span>
+            //     </a>
+            // </li>
         $index='';
         $formregistrar='';
         $formcrear='';

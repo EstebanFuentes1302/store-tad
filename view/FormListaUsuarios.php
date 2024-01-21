@@ -38,7 +38,7 @@
 		?>
 
 			<div class="container d-flex flex-column">
-			<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>
+			<?php BarraSuperior($_SESSION['NombUser'], $_SESSION['dniuser'], $_SESSION['RolUser'],$_SESSION['PathUser'])?>
 				<div class="row vh-100">
 					<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
 						<div class="d-table-cell align-middle">

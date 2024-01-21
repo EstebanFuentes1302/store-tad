@@ -28,7 +28,7 @@
 	<div class="wrapper">
 	<?php
 		include_once "../model/BarraLateral.php"; 
-		BarraLateral(2);
+		BarraLateral(4);
 		include_once "../model/Producto.php";
 		$p = new Producto;
 		$productouno = $p -> obtenerUno($_GET["id"])[0];

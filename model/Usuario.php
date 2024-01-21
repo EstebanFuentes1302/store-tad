@@ -99,7 +99,7 @@ class Usuario
                 'Content-Type: application/json'
               ),
             ));
-            $response = json_decode(curl_exec($curl));
+            $response = curl_exec($curl);
             curl_close($curl);
             return json_decode($response);
           }catch(Exception $e){

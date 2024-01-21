@@ -1,11 +1,12 @@
 <?php
-    include_once "../model/db.php";
+    include_once("../model/Producto.php");
     # Simplemente redireccionamos al listado de alumnos
 
-    //(nombre de la base de datos, $enlace) mysql_select_db("Relocadb",$link);
     //capturando datos
     $binariosImagen="";
     $tipoArchivo="";
+
+    $p = new Producto;
     if (isset($_FILES['Foto']['name'])) {
         $tipoArchivo = $_FILES['Foto']['type'];
         $permitido=array("image/png","image/jpeg");
@@ -28,23 +29,37 @@
     $ruta_foto = $carpeta.'/'.$nombre_imagen;
 
     if(move_uploaded_file($temporal, $ruta_foto)){
-        $v1 = $_POST['Nom'];
-        $v2 = $_POST['Descip'];
-        $v3 = $_POST['Preci'];
-        $v4 = $_POST['Stock'];
+        
+        $data = array(
+            "name" => $_POST['name'],
+            "description" => $_POST['description'],
+            "price" => $_POST['price'],
+            "stock" => $_POST['stock'],
+            "path" => $ruta_foto
+        );
 
-        $query = "INSERT INTO producto (name , description, price,  stock , path) values('" . $v1 . "','" . $v2. "','". $v3. "','" . $v4  . "','" . $ruta_foto ."');";
-        if(mysqli_query($conn, $query)) {
-            
+
+        $apiResponse = $p -> insertar(json_encode($data));
+        $responseBody = $apiResponse -> body;
+
+        if($apiResponse){
+            if($apiResponse -> error == false){
+                echo'<script type="text/javascript">
+                        alert("'.$responseBody.'");
+                        window.location.href="../view/FormProductos.php";
+                    </script>';
+            }else{
+                echo'<script type="text/javascript">
+                        alert("'.$responseBody -> code.'");
+                        window.location.href="../view/FormRegistrar.php";
+                    </script>';
+            }
+        }else{
             echo'<script type="text/javascript">
-            alert("Registrado con exito");
-            window.location.href="../view/FormProductos.php";
-            </script>';
-        } else {
-
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                    alert("Error al agregar producto");
+                    window.location.href="../view/FormRegistrar.php";
+                </script>';
         }
-        mysqli_close($conn);
     }else{
         echo json_encode('noupload');
     }

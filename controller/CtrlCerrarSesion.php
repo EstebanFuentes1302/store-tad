@@ -4,7 +4,7 @@ function logout()
 {
   $_SESSION = array(); //destruir variables sesion
   session_destroy();
-  header( 'Location: /index.php' );
+  header( 'Location: ../index.php' );
 }
 
 logout();

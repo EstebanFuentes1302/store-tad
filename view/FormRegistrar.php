@@ -45,13 +45,13 @@ if (!isset($_SESSION['NombUser']) ){
 									<form action="../controller/CtrlRegistrarProducto.php" method="POST" enctype="multipart/form-data">
 										<div class="card-body">
 											<p style=" font-size:20px;"><b>Nombre Producto</b></p>				
-											<Input class="form-control" style="margin: auto; " name = "Nom" Type Text></P>
+											<Input class="form-control" style="margin: auto; " name = "name" Type Text></P>
 											<p style=" font-size:20px;"><b>Descripcion Producto</b></p>
-											<Input class="form-control" style="margin: auto;"name = "Descip" Type Text></P>
+											<Input class="form-control" style="margin: auto;"name = "description" Type Text></P>
 											<p style=" font-size:20px;"><b>Precio</b></p>
-											<Input class="form-control" style="margin: auto;"name = "Preci" Type="number" min="0"></P>
+											<Input class="form-control" style="margin: auto;"name = "price" Type="number" min="0"></P>
 											<p style=" font-size:20px;"><b>Stock de entrada</b></p>
-											<Input class="form-control" style="margin: auto;"name = "Stock" Type="number" min="0"></P>
+											<Input class="form-control" style="margin: auto;"name = "stock" Type="number" min="0"></P>
 											<br>
 											<Input class="form-control" style="margin: auto; " Type = "file" name = "Foto">
 											<br><br><br>
@@ -74,7 +74,7 @@ if (!isset($_SESSION['NombUser']) ){
 		</div>
 	</div>
 
-	<script src="js/app.js"></script>
+	<script src="../js/app.js"></script>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {

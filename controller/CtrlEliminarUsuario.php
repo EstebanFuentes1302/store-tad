@@ -1,6 +1,5 @@
 
 <?php
-    include_once "../model/db.php";
     include_once "../model/Usuario.php";
     $usuario = new Usuario; 
     $response = $usuario->eliminar($_GET["id"]);

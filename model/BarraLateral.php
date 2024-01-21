@@ -77,32 +77,29 @@
                 break;
         }
         echo 	'<nav class="navbar navbar-expand navbar-light navbar-bg">
-        <a class="sidebar-toggle js-sidebar-toggle">
-        <i class="hamburger align-self-center"></i>
-        </a>
+            <a class="sidebar-toggle js-sidebar-toggle">
+                <i class="hamburger align-self-center"></i>
+            </a>
 
-        <div class="navbar-collapse collapse">
-            <ul class="navbar-nav navbar-align">
-
-            
-                <li class="nav-item dropdown">
-                    <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-        <i class="align-middle" data-feather="settings"></i>
-        </a>
-
-                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-        <img src="../img/avatars/avatar.png" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">'; echo $usuario ;echo '</span>
-        </a>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="user"></i> '; echo"DNI: ". $dni ;echo '</a>
-                        <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="info"></i> '; echo"sesión: ". $textrol ;echo '</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item"  href="../controller/CerrarSesion.php"><i class="align-middle me-1" data-feather="log-out"></i> Cerrar Sesion</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        </nav>';
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav navbar-align">
+                    <li class="nav-item dropdown">
+                        <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                            <i class="align-middle" data-feather="settings"></i>
+                        </a>
+                        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                            <img src="../img/avatars/avatar.png" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">'; echo $usuario ;echo '</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="user"></i> '; echo"DNI: ". $dni ;echo '</a>
+                            <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="info"></i> '; echo"sesión: ". $textrol ;echo '</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"  href="../controller/CtrlCerrarSesion.php"><i class="align-middle me-1" data-feather="log-out"></i> Cerrar Sesion</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </nav>';
             }
         
 ?>

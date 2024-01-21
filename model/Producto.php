@@ -1,14 +1,54 @@
 
 <?php
-include_once "db.php";
 class Producto
 {
+    public static function insertar($data){
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/products',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            )
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        return json_decode($response);
+    }
 
     public static function obtener()
-    {
-        global $conn;
-        $resultado = $conn->query("SELECT id, name , description, price, stock, path FROM producto");
-        return $resultado->fetch_all(MYSQLI_ASSOC);
+    {  
+        try{
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/products',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            //Devuelve un arreglo de objetos, lo que está dentro del body
+            return json_decode($response) -> body;
+        }catch(Exception $e){
+
+        }
+        
     }
 
     public static function obtenerUno($id)
@@ -28,19 +68,59 @@ class Producto
 
     public static function eliminar($id)
     {
-        global $conn;
-        $sentencia = $conn->prepare("DELETE FROM producto WHERE id = ?");
-        $sentencia->bind_param("i", $id);
-        $sentencia->execute();
+        try{
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/products/'.$id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'DELETE',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            
+            //Convierte la respuesta en JSON a un objeto
+            return json_decode($response);
+        }catch(Exception $e){
+            echo $e;
+            return false;
+        }
+        
       
     }
-    public static function Actualizar($nomb,$descrip,$precio,$Stock,$id)
+    public static function Actualizar($data)
     {
-        global $conn;
+        try{
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/products',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            return json_decode($response);
+        }catch(Exception $e){
+            return false;
+        }
         
-        $sentencia = $conn->prepare("update producto set name= ?, description = ?, price = ?, stock = ? where id = ?");
-        $sentencia->bind_param("ssssi",$nomb,$descrip,$precio, $Stock, $id);
-        $sentencia->execute();
         
     }
 

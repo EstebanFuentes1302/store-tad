@@ -1,5 +1,4 @@
 <?php
-  include('../model/db.php');
   session_start();
   #Usuario
   if(isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['password']) && !empty($_POST['password'])){
@@ -9,7 +8,6 @@
       $result = mysqli_query($conn, $query);
       if(mysqli_num_rows($result)>0){
        $Arreglo = mysqli_fetch_assoc($result);
-       print_r($Arreglo);
        $_SESSION['NombUser']=$Arreglo['name'];
        $_SESSION['dniuser']=$Arreglo['id'];
        $_SESSION['RolUser']=$Arreglo['role'];

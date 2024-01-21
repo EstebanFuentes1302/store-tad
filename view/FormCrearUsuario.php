@@ -49,7 +49,7 @@ if (!isset($_SESSION['NombUser']) ){
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form action="../controller/CtrlRegistrarAdmin.php" method="POST" enctype="multipart/form-data">
+									<form action="../controller/<.php" method="POST" enctype="multipart/form-data">
 										<div class="mb-3">
 											<label class="form-label">DNI usuario</label>
 											<input class="form-control form-control-lg" type="text" name="dnipost" placeholder="Ingrese el DNI" />

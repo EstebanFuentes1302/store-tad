@@ -63,25 +63,25 @@ $Productos = Producto::obtener();
 							        <tbody style="border: black 2.5px solid;">
 										<?php foreach ($Productos as $producto) { ?>
 											<tr >
-											<td><?php echo $producto["ProductID"] ?></td>
-												<td><?php echo $producto["NombreProducto"] ?></td>
-												<td><?php echo $producto["Descripcion"]?></td>
-												<td>S/. <?php echo $producto["Precio"]?></td>
-												<td><?php echo $producto["Stock"] ?> Unidades</td>
-												<td><img width="100" src="<?php echo $producto["Ruta"] ?>"></td>
-											<td>
-													<a class="btn btn-info">
-													<i class="fa fa-check"></i> Stock
-													</a>
-												</td>
+											<td><?php echo $producto["id"] ?></td>
+												<td><?php echo $producto["name"] ?></td>
+												<td><?php echo $producto["description"]?></td>
+												<td>S/. <?php echo $producto["price"]?></td>
+												<td><?php echo $producto["stock"] ?> Unidades</td>
+												<td><img width="100" src="<?php echo $producto["path"] ?>"></td>
+											<!-- <td>
+												<a class="btn btn-info">
+												<i class="fa fa-check"></i> Stock
+												</a>
+											</td> -->
 												<td>
 		
-													<a class="btn btn-warning" href="FormActualizar.php?id=<?php echo $producto["ProductID"] ?>" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
+													<a class="btn btn-warning" href="FormActualizar.php?id=<?php echo $producto["id"] ?>" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
 													<i class="fa fa-edit"></i> Editar
 													</a>
 												</td>
 												<td>
-													<a href="eliminar_producto.php?id=<?php echo $producto["ProductID"] ?>"  class="btn btn-danger" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
+													<a href="eliminar_producto.php?id=<?php echo $producto["id"] ?>"  class="btn btn-danger" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
 													<i class="fa fa-trash-o"></i> Eliminar
 													</a>
 												</td>

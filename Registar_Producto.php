@@ -18,8 +18,9 @@
     }
     //PARA EL ARCHIVO DE IMAGEN
     $end_name = explode(".", $_FILES['Foto']['name']);
+    $image_name =  $_FILES['Foto']['name'];
     $ext = end($end_name); 
-    $nombre_imagen = "image.$ext";
+    $nombre_imagen = "$image_name.$ext";
     $temporal = $_FILES['Foto']['tmp_name'];
     $carpeta = 'img/products';
     $ruta_foto = $carpeta.'/'.$nombre_imagen;

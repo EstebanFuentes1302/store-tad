@@ -26,53 +26,50 @@ if (!isset($_SESSION['NombUser']) ){
 
 <body>
 	<div class="wrapper">
-	<?php include_once "BarraLateral.php"; 
-	BarraLateral(2);
-	include_once "Producto.php";
-	$productouno = Producto::obtenerUno($_GET["id"]);
-	?>
+	<?php
+		include_once "BarraLateral.php"; 
+		BarraLateral(2);
+		include_once "Producto.php";
 
+		$productouno = Producto::obtenerUno($_GET["id"]);
+	?>
 		<div class="main">
-		<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>
+			<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>
 
 			<main class="content">
 				<div class="container-fluid p-0">
-
 					<h1 class="h3 mb-3"><strong>ACTUALIZAR DATOS DEL PRODUCTO </strong> </h1>
-
-					
-
 					<div class="row">
 						<div class="col-16 col-lg-16 col-xxl-16 d-flex">
-						<div class="col-sm-4"><img class="img-fluid" src="data:<?php  echo $productouno->TipoFoto ?>;base64,<?php echo  base64_encode($productouno->FotoProducto); ?>"></div>
+							<div class="col-sm-4 me-3">
+								<img class="img-fluid" src="<?php  echo $productouno->path ?>">
+							</div>
 							<div class="card flex-fill">
 								<div class="card-header">
-								
+							
 								</div>
 								<div>
-<form   action="Actutalizar_Porducto.php" method="POST" enctype="multipart/form-data">
-
-<div class="card-body">
-	
-        <p style=" font-size:20px;"><b>Nombre Producto</b></p>		
-		<input type="hidden" name="id" value="<?php echo $_GET["id"] ?>">
-        <Input value="<?php echo $productouno->NombreProducto ?>" class="form-control" style="margin: auto; " name = "Nom" Type Text></P>
-        <p style=" font-size:20px;"><b>Descripcion Producto</b></p>
-        <Input value="<?php echo $productouno->Descripcion ?>" class="form-control" style="margin: auto;"name = "Descip" Type Text></P>
-			<p style=" font-size:20px;"><b>Precio</b></p>
-			<Input value="<?php echo $productouno->Precio ?>"  class="form-control" style="margin: auto;"name = "Preci" Type="number" min="0"></P>
-				<p style=" font-size:20px;"><b>Stock de entrada</b></p>
-				<Input value="<?php echo $productouno->Stock ?>" class="form-control" style="margin: auto;"name = "Stock" Type="number" min="0"></P>
-        
-            <br><br><br>
-			<div class="text-center mt-3">
-            <Input class="btn btn-success" style="width:350px;
-        height:30px;" name= "Registrar" Type = Submit value = "Actualizar">
-            
-			</div>
-            <br>
-			</div>
-            </form>
+									<form   action="Actutalizar_Porducto.php" method="POST" enctype="multipart/form-data">
+										<div class="card-body">
+											<p style=" font-size:20px;"><b>Nombre Producto</b></p>		
+											<input type="hidden" name="id" value="<?php echo $_GET["id"] ?>">
+											<Input value="<?php echo $productouno->name ?>" class="form-control" style="margin: auto; " name = "Nom" Type Text></P>
+											<p style=" font-size:20px;"><b>Descripcion Producto</b></p>
+											<Input value="<?php echo $productouno->description ?>" class="form-control" style="margin: auto;"name = "Descip" Type Text></P>
+												<p style=" font-size:20px;"><b>Precio</b></p>
+												<Input value="<?php echo $productouno->price ?>"  class="form-control" style="margin: auto;"name = "Preci" Type="number" min="0"></P>
+													<p style=" font-size:20px;"><b>Stock de entrada</b></p>
+													<Input value="<?php echo $productouno->stock ?>" class="form-control" style="margin: auto;"name = "Stock" Type="number" min="0"></P>
+											
+												<br><br><br>
+												<div class="text-center mt-3">
+												<Input class="btn btn-success" style="width:350px;
+											height:30px;" name= "Registrar" Type = Submit value = "Actualizar">
+												
+												</div>
+												<br>
+										</div>
+									</form>
 		
 		</div>
 

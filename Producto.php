@@ -7,14 +7,14 @@ class Producto
     public static function obtener()
     {
         global $conn;
-        $resultado = $conn->query("SELECT ProductID, NombreProducto ,Descripcion,Precio,  Stock ,Ruta FROM producto");
+        $resultado = $conn->query("SELECT id, name , description, price, stock, path FROM producto");
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 
     public static function obtenerUno($id)
     {
         global $conn;
-        $sentencia = $conn->prepare("SELECT * FROM producto WHERE ProductID = ?");
+        $sentencia = $conn->prepare("SELECT * FROM producto WHERE id = ?");
         $sentencia->bind_param("i", $id);
         $sentencia->execute();
         
@@ -29,7 +29,7 @@ class Producto
     public static function eliminar($id)
     {
         global $conn;
-        $sentencia = $conn->prepare("DELETE FROM producto WHERE ProductID = ?");
+        $sentencia = $conn->prepare("DELETE FROM producto WHERE id = ?");
         $sentencia->bind_param("i", $id);
         $sentencia->execute();
       
@@ -38,7 +38,7 @@ class Producto
     {
         global $conn;
         
-        $sentencia = $conn->prepare("update producto set NombreProducto= ?, Descripcion = ?,Precio = ?,Stock = ? where ProductID = ?");
+        $sentencia = $conn->prepare("update producto set name= ?, description = ?, price = ?, stock = ? where id = ?");
         $sentencia->bind_param("ssssi",$nomb,$descrip,$precio, $Stock, $id);
         $sentencia->execute();
         

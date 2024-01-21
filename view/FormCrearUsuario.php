@@ -22,15 +22,15 @@ if (!isset($_SESSION['NombUser']) ){
 
 	<title>Registrar Administrador</title>
 
-	<link href="css/app.css" rel="stylesheet">
+	<link href="../css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 	<main class="d-flex w-100">
-	<?php include_once "BarraLateral.php"; 
-	BarraLateral(3)
+	<?php include_once "../model/BarraLateral.php"; 
+		BarraLateral(3)
 	?>
 
 		<div class="container d-flex flex-column">
@@ -49,7 +49,7 @@ if (!isset($_SESSION['NombUser']) ){
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<form action="RegistraAdmin.php" method="POST" enctype="multipart/form-data">
+									<form action="../controller/CtrlRegistrarAdmin.php" method="POST" enctype="multipart/form-data">
 										<div class="mb-3">
 											<label class="form-label">DNI usuario</label>
 											<input class="form-control form-control-lg" type="text" name="dnipost" placeholder="Ingrese el DNI" />

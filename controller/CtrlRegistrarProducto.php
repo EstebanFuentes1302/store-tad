@@ -1,5 +1,5 @@
 <?php
-    include_once "db.php";
+    include_once "../model/db.php";
     # Simplemente redireccionamos al listado de alumnos
 
     //(nombre de la base de datos, $enlace) mysql_select_db("Relocadb",$link);
@@ -10,10 +10,12 @@
         $tipoArchivo = $_FILES['Foto']['type'];
         $permitido=array("image/png","image/jpeg");
         if( in_array( $tipoArchivo, $permitido) == false ){
-            die('<script type="text/javascript">
-            alert("Archivo NO PERMITIDO");
-            window.location.href="VistaPrincipal.php";
-            </script>');
+            die('
+                <script type="text/javascript">
+                    alert("Archivo NO PERMITIDO");
+                    window.location.href="index.php";
+                </script>
+            ');
         }
     }
     //PARA EL ARCHIVO DE IMAGEN
@@ -22,7 +24,7 @@
     $ext = end($end_name); 
     $nombre_imagen = "$image_name.$ext";
     $temporal = $_FILES['Foto']['tmp_name'];
-    $carpeta = 'img/products';
+    $carpeta = '../img/products';
     $ruta_foto = $carpeta.'/'.$nombre_imagen;
 
     if(move_uploaded_file($temporal, $ruta_foto)){
@@ -31,12 +33,12 @@
         $v3 = $_POST['Preci'];
         $v4 = $_POST['Stock'];
 
-        $query = "INSERT INTO producto (NombreProducto , Descripcion, Precio,  Stock , Ruta) values('" . $v1 . "','" . $v2. "','". $v3. "','" . $v4  . "','" . $ruta_foto ."');";
+        $query = "INSERT INTO producto (name , description, price,  stock , path) values('" . $v1 . "','" . $v2. "','". $v3. "','" . $v4  . "','" . $ruta_foto ."');";
         if(mysqli_query($conn, $query)) {
             
             echo'<script type="text/javascript">
             alert("Registrado con exito");
-            window.location.href="FormProductos.php";
+            window.location.href="../view/FormProductos.php";
             </script>';
         } else {
 

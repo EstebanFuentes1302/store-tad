@@ -26,19 +26,16 @@
 			<div class="row vh-100">
 				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
 					<div class="d-table-cell align-middle">
-
 						<div class="text-center mt-4">
 							<h1 class="h2">Bienvenido Administrador</h1>
-							
 						</div>
-
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
 										<img src="img/avatars/avatar.png" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
 									</div>
-									<form action="validalogin.php" method="POST" enctype="multipart/form-data">
+									<form action="controller/CtrlValidarlogin.php" method="POST" enctype="multipart/form-data">
 										<div class="mb-3">
 											<label class="form-label">Usuario</label>
 											<input class="form-control form-control-lg" type="text" name="usuario" placeholder="Ingresa tu usuario" />

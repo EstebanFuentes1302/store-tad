@@ -20,33 +20,28 @@ if (!isset($_SESSION['NombUser']) ){
 
 	<title>Panel Administracion</title>
 
-	<link href="css/app.css" rel="stylesheet">
+	<link href="../css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<?php include_once "Producto.php";
+<?php include_once "../model/Producto.php";
 $Productos = Producto::obtener();
 
 ?>
 <body>
 	<div class="wrapper">
-	<?php include_once "BarraLateral.php"; 
-	BarraLateral(1)
+	<?php include_once "../model/BarraLateral.php"; 
+		BarraLateral(1)
 	?>
 		<div class="main">
-		<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>
+		<?php BarraSuperior($_SESSION['NombUser'], $_SESSION['dniuser'], $_SESSION['RolUser'])?>
 
 			<main class="content">
 				<div class="container-fluid p-0">
-
 					<h1 class="h3 mb-3"><strong>LISTA</strong> Productos</h1>
-
-					
-
 					<div class="row">
 						<div class="col-16 col-lg-16 col-xxl-16 d-flex">
 							<div class="card flex-fill">
 								<div class="card-header">
-
 									<h5 class="card-title mb-0">Productos agregados</h5>
 								</div>
 								<table class="table table-hover my-0">
@@ -63,27 +58,39 @@ $Productos = Producto::obtener();
 							        <tbody style="border: black 2.5px solid;">
 										<?php foreach ($Productos as $producto) { ?>
 											<tr >
-											<td><?php echo $producto["id"] ?></td>
-												<td><?php echo $producto["name"] ?></td>
-												<td><?php echo $producto["description"]?></td>
-												<td>S/. <?php echo $producto["price"]?></td>
-												<td><?php echo $producto["stock"] ?> Unidades</td>
-												<td><img width="100" src="<?php echo $producto["path"] ?>"></td>
-											<!-- <td>
-												<a class="btn btn-info">
-												<i class="fa fa-check"></i> Stock
-												</a>
-											</td> -->
 												<td>
-		
-													<a class="btn btn-warning" href="FormActualizar.php?id=<?php echo $producto["id"] ?>" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
-													<i class="fa fa-edit"></i> Editar
-													</a>
+													<?php echo $producto["id"] ?>
 												</td>
 												<td>
-													<a href="eliminar_producto.php?id=<?php echo $producto["id"] ?>"  class="btn btn-danger" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
-													<i class="fa fa-trash-o"></i> Eliminar
+													<?php echo $producto["name"] ?>
+												</td>
+												<td>
+													<?php echo $producto["description"]?>
+												</td>
+												<td>
+													S/. <?php echo $producto["price"]?>
+												</td>
+												<td>
+													<?php echo $producto["stock"] ?> Unidades
+												</td>
+												<td>
+													<img width="100" src="<?php echo $producto["path"] ?>">
+												</td>
+												<!-- <td>
+													<a class="btn btn-info">
+													<i class="fa fa-check"></i> Stock
 													</a>
+												</td> -->
+													<td>
+			
+														<a class="btn btn-warning" href="FormActualizar.php?id=<?php echo $producto["id"] ?>" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
+														<i class="fa fa-edit"></i> Editar
+														</a>
+													</td>
+													<td>
+														<a href="eliminar_producto.php?id=<?php echo $producto["id"] ?>"  class="btn btn-danger" style ="<?php if($_SESSION['RolUser']==2){echo $Estilo; }?>">
+														<i class="fa fa-trash-o"></i> Eliminar
+														</a>
 												</td>
 											</tr>
 										<?php } ?>
@@ -97,7 +104,7 @@ $Productos = Producto::obtener();
 				</div>
 			</main>
 
-		<?php include_once("footer.php")?>
+		<?php include_once("../model/Footer.php")?>
 		</div>
 	</div>
 

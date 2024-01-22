@@ -47,7 +47,7 @@
                         <i class="align-middle" data-feather="users"></i> <span class="align-middle">Registrar Usuario ADMIN</span>
                     </a>
                     <li class="sidebar-item ' ;echo($formactualizar);echo'">
-                        <a class="sidebar-link" href="../view/FormRegistrar.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
+                        <a class="sidebar-link" href="../view/FormActualizar.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
                             <i class="align-middle"  data-feather="clipboard"></i> <span class="align-middle">Actualizar producto</span>
                         </a>
                     </li>

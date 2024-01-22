@@ -95,7 +95,7 @@
                             <i class="align-middle" data-feather="settings"></i>
                         </a>
                         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                            <img src="'; echo $path ;echo '" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">'; echo $usuario ;echo '</span>
+                            <img src="../img/avatars/avatar.png" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">'; echo $usuario ;echo '</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="user"></i> '; echo"DNI: ". $dni ;echo '</a>

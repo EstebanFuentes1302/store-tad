@@ -9,7 +9,7 @@
         "id" => $_POST["id"],
     );
 
-    $response = $producto -> Actualizar(json_encode($data));
+    $response = $producto -> actualizar(json_encode($data));
     $message = $response -> body;
 
     if($response){

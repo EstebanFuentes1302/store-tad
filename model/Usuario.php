@@ -1,109 +1,30 @@
 
+
 <?php
+include_once('repository/UsuarioRepositoryInterface.php');
 class Usuario
 {
+    private $usuarioRepository;
 
-    public static function obtener()
+    public function __construct(UsuarioRepositoryInterface $usuarioRepository){
+        $this -> usuarioRepository = $usuarioRepository;
+    }
+
+    public function obtener()
     {
-        try{
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/users',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            ));
-
-            $response = curl_exec($curl);
-
-            curl_close($curl);
-            //Envía la respuesta desde JSON como Objeto, y dentro del body hay un arreglo de objetos
-            return json_decode($response)->body;
-        }catch(Exception $e){
-            echo $e;
-            return false;
-        }
-        
+        return $this -> usuarioRepository -> obtener();     
     }
 
-    public static function obtenerUno($id){
-        try{
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/users/'.$id,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'GET',
-            ));
-
-            $response = curl_exec($curl);
-
-            curl_close($curl);
-            return json_decode($response);
-        }catch(Exception $e){
-            echo $e;
-            return false;
-        }
-        
+    public function obtenerUno($id){
+        return $this -> usuarioRepository -> obtenerUno($id);
     }
 
-    public static function eliminar($id)
+    public function eliminar($id)
     {   
-        try{
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/users/'.$id,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'DELETE',
-            ));
-
-            $response = curl_exec($curl);
-            
-            curl_close($curl);
-            return json_decode($response);
-        }catch(Exception $e){
-            echo $e;
-            return false;
-        }
-        
+        return $this -> usuarioRepository -> eliminar($id);
     }
 
-    public static function agregar($data){
-        try{
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-              CURLOPT_URL => 'https://tad-store-api.azurewebsites.net/api/users/',
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => '',
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 0,
-              CURLOPT_FOLLOWLOCATION => true,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => 'POST',
-              CURLOPT_POSTFIELDS => json_encode($data),
-              CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json'
-              ),
-            ));
-            $response = curl_exec($curl);
-            curl_close($curl);
-            return json_decode($response);
-          }catch(Exception $e){
-            return false;
-          }
+    public function agregar($data){
+        return $this -> usuarioRepository -> agregar($data);
     }
 }

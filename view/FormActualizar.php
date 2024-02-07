@@ -27,11 +27,13 @@
 <body>
 	<div class="wrapper">
 	<?php
-		include_once "../model/BarraLateral.php"; 
-		BarraLateral(2);
+		include_once "../model/BarraLateral.php";
 		include_once "../model/Producto.php";
-		$p = new Producto;
+		include_once "../model/repository/ProductoApiRestRepository.php";
+		$productoRepository = new ProductoApiRestRepository;
+		$p = new Producto($productoRepository);
 		$productouno = $p -> obtenerUno($_GET["id"])[0];
+		BarraLateral(2);
 	?>
 		<div class="main">
 			<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>

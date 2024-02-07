@@ -1,12 +1,13 @@
 <?php
-    include_once("../model/Producto.php");
-    # Simplemente redireccionamos al listado de alumnos
-
     //capturando datos
     $binariosImagen="";
     $tipoArchivo="";
 
-    $p = new Producto;
+    include_once "../model/Producto.php";
+    include_once "../model/repository/ProductoApiRestRepository.php";
+    $productoRepository = new ProductoApiRestRepository;
+    $p = new Producto($productoRepository);
+
     if (isset($_FILES['Foto']['name'])) {
         $tipoArchivo = $_FILES['Foto']['type'];
         $permitido=array("image/png","image/jpeg");
@@ -55,10 +56,10 @@
                     </script>';
             }
         }else{
-            echo'<script type="text/javascript">
-                    alert("Error al agregar producto");
-                    window.location.href="../view/FormRegistrar.php";
-                </script>';
+            // echo'<script type="text/javascript">
+            //         alert("Error al agregar producto");
+            //         window.location.href="../view/FormRegistrar.php";
+            //     </script>';
         }
     }else{
         echo json_encode('noupload');

@@ -1,7 +1,10 @@
 
 <?php
-    include_once "../model/Usuario.php";
-    $usuario = new Usuario; 
+    include_once("../model/Usuario.php");
+	include_once("../model/repository/UsuarioApiRestRepository.php");
+	$usuarioRepository = new UsuarioApiRestRepository;
+	$usuario = new Usuario($usuarioRepository);
+    
     $response = $usuario->eliminar($_GET["id"]);
     $message = $response->body;
     if($response){

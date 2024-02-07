@@ -6,9 +6,13 @@
 		}?>
 	<!DOCTYPE html>
 	<html lang="en">
-	<?php include_once "../model/Usuario.php";
-	$usuario = new Usuario;
+	<?php 
+	include_once("../model/Usuario.php");
+	include_once("../model/repository/UsuarioApiRestRepository.php");
+	$usuarioRepository = new UsuarioApiRestRepository;
+	$usuario = new Usuario($usuarioRepository);
 	$LisUsuarios = $usuario->obtener();
+	
 	$Estilo = "pointer-events: none; text-decoration:line-through;";
 	?>
 	<head>

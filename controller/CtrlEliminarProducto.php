@@ -1,7 +1,10 @@
 
 <?php
     include_once "../model/Producto.php";
-    $p = new Producto;
+    include_once "../model/repository/ProductoApiRestRepository.php";
+    $productoRepository = new ProductoApiRestRepository;
+    $p = new Producto($productoRepository);
+    
     $response = $p -> eliminar($_GET["id"]);
     $message = $response -> body;
 

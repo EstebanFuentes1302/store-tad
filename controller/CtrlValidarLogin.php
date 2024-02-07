@@ -1,7 +1,9 @@
 <?php
   session_start();
-  include_once('../model/Usuario.php');
-  $u = new Usuario;
+  include_once("../model/Usuario.php");
+	include_once("../model/repository/UsuarioApiRestRepository.php");
+	$usuarioRepository = new UsuarioApiRestRepository;
+	$u = new Usuario($usuarioRepository);
   #Usuario
   if(isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['password']) && !empty($_POST['password'])){
       $usuario = $_POST['usuario'];

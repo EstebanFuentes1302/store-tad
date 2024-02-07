@@ -40,18 +40,17 @@
                             <i class="align-middle"  data-feather="clipboard"></i> <span class="align-middle">Registrar producto</span>
                         </a>
                     </li>
-                    
-                    <li class="sidebar-item ' ;echo($formactualizar);echo'">
-                        <a class="sidebar-link" href="../view/FormActualizar.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
-                            <i class="align-middle"  data-feather="clipboard"></i> <span class="align-middle">Actualizar producto</span>
-                        </a>
-                    </li>
+                    <li class="sidebar-item ' ;echo($formcrear);echo'">
+                        <a class="sidebar-link" href="../view/FormCrearUsuario.php" style="';echo ($EstiloG); echo'">
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">Registrar Usuario ADMIN</span>
+                    </a></li>
                     <li class="sidebar-item ' ;echo($formUser);echo'">
                         <a class="sidebar-link" href="../view/FormListaUsuarios.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
                             <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Lista de USUARIOS</span>
                         </a>
                     </li>
-
+                    
+                   
                     
             
                 </ul>
@@ -65,10 +64,11 @@
             //         <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ir Pagina de la Tienda</span>
             //     </a>
             // </li>
-            // <li class="sidebar-item ' ;echo($formcrear);echo'">
-            //             <a class="sidebar-link" href="../view/FormCrearUsuario.php" style="';echo ($EstiloG); echo'">
-            //             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Registrar Usuario ADMIN</span>
-            //         </a></li>
+            // <li class="sidebar-item ' ;echo($formactualizar);echo'">
+            //     <a class="sidebar-link" href="../view/FormActualizar.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
+            //         <i class="align-middle"  data-feather="clipboard"></i> <span class="align-middle">Actualizar producto</span>
+            //     </a>
+            // </li>
         $index='';
         $formregistrar='';
         $formcrear='';

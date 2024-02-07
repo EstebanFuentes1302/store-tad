@@ -38,7 +38,7 @@
 
 		<main class="d-flex w-100">
 		<?php include_once "../model/BarraLateral.php"; 
-			BarraLateral(4)
+			BarraLateral(5)
 		?>
 
 			<div class="container d-flex flex-column">

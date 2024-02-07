@@ -1,6 +1,9 @@
 <?php
-    include_once "../model/Producto.php";
-    $producto = new Producto;
+     include_once "../model/Producto.php";
+     include_once "../model/repository/ProductoApiRestRepository.php";
+     $productoRepository = new ProductoApiRestRepository;
+     $producto = new Producto($productoRepository);
+
     $data = array(
         "name" => $_POST["name"],
         "description" => $_POST["description"],

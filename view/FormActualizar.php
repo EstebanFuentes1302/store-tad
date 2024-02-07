@@ -36,7 +36,7 @@
 		BarraLateral(2);
 	?>
 		<div class="main">
-			<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>
+			<?php BarraSuperior($_SESSION['NombUser'], $_SESSION['dniuser'], $_SESSION['RolUser'],$_SESSION['PathUser'])?>
 
 			<main class="content">
 				<div class="container-fluid p-0">

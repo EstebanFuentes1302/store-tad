@@ -17,7 +17,7 @@ if (!isset($_SESSION['NombUser']) ){
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title>Panel Administracion</title>
+	<title>Panel administrativo</title>
 
 	<link href="../css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -31,11 +31,11 @@ if (!isset($_SESSION['NombUser']) ){
 	?>
 
 		<div class="main">
-		<?php BarraSuperior($_SESSION['NombUser'],$_SESSION['dniuser'],$_SESSION['RolUser'])?>
+		<?php BarraSuperior($_SESSION['NombUser'], $_SESSION['dniuser'], $_SESSION['RolUser'],$_SESSION['PathUser'])?>
 
 			<main class="content">
 				<div class="container-fluid p-0">
-					<h1 class="h3 mb-3"><strong>Agregar</strong> Productos</h1>
+					<h1 class="h3 mb-3" style="color:#3b7ddd"><strong>AGREGAR PRODUCTOS</strong></h1>
 					<div class="row">
 						<div class="col-16 col-lg-16 col-xxl-16 d-flex">
 							<div class="card flex-fill">

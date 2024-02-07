@@ -19,6 +19,7 @@
               $_SESSION['NombUser'] = $user -> name;
               $_SESSION['dniuser'] = $user -> id;
               $_SESSION['RolUser'] = $user -> role;
+              $_SESSION['PathUser'] = $user -> path;
               echo'<script type="text/javascript">
                 window.location.href="../view/FormProductos.php";
                 </script>';

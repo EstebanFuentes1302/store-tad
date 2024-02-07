@@ -2,8 +2,8 @@
 	session_start();
 	header('Content-Type: text/html; charset=UTF-8');
 	$Estilo="pointer-events: none; text-decoration:line-through;";
-	if (!isset($_SESSION['NombUser']) ){
-		header ("Location: index.php");
+	if (!isset($_SESSION['NombUser']) || !isset($_SESSION['PathUser'])){
+		header ("Location: ../index.php");
 		exit;
 		}?>
 	<!DOCTYPE html>
@@ -15,11 +15,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+		<link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
 
 		<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-		<title>Panel Administracion</title>
+		<title>Panel administrativo</title>
 
 		<link href="../css/app.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -37,26 +37,26 @@
 			BarraLateral(1)
 		?>
 			<div class="main">
-			<?php BarraSuperior($_SESSION['NombUser'], $_SESSION['dniuser'], $_SESSION['RolUser'])?>
+			<?php BarraSuperior($_SESSION['NombUser'], $_SESSION['dniuser'], $_SESSION['RolUser'],$_SESSION['PathUser'])?>
 
 				<main class="content">
 					<div class="container-fluid p-0">
-						<h1 class="h3 mb-3"><strong>LISTA</strong> Productos</h1>
+						<h1 class="h3 mb-3" style="color:#3b7ddd"><strong>LISTA DE PRODUCTOS</strong></h1>
 						<div class="row">
 							<div class="col-16 col-lg-16 col-xxl-16 d-flex">
 								<div class="card flex-fill">
-									<div class="card-header">
+									<!-- <div class="card-header">
 										<h5 class="card-title mb-0">Productos agregados</h5>
-									</div>
+									</div> -->
 									<table class="table table-hover my-0">
 										<thead>
 											<tr>
-												<th>ID Producto</th>
-												<th>Nombre Producto</th>
-												<th class="d-none d-xl-table-cell">Descripcion</th>
-												<th class="d-none d-xl-table-cell">Precio</th>
-												<th>Stock</th>
-												<th class="d-none d-md-table-cell">Foto</th>
+												<th class="text-center">ID</th>
+												<th class="text-center">Nombre</th>
+												<th class="d-none d-xl-table-cell text-center">Descripción</th>
+												<th class="d-none d-xl-table-cell text-center">Precio</th>
+												<th class="text-center">Stock</th>
+												<th class="d-none d-md-table-cell text-center">Foto</th>
 											</tr>
 										</thead>
 										<tbody style="border: black 2.5px solid;">
@@ -75,7 +75,7 @@
 														S/. <?php echo $producto -> price?>
 													</td>
 													<td>
-														<?php echo $producto -> stock ?> Unidades
+														<?php echo $producto -> stock ?> unidades
 													</td>
 													<td>
 														<img width="100" src="<?php echo $producto -> path ?>">

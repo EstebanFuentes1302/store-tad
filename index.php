@@ -14,7 +14,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
-	<title>Iniciar sesion administrador</title>
+	<title>Iniciar sesion</title>
 
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
 				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
 					<div class="d-table-cell align-middle">
 						<div class="text-center mt-4">
-							<h1 class="h2">Bienvenido Administrador</h1>
+							<h1 class="h2">Bienvenido</h1>
 						</div>
 						<div class="card">
 							<div class="card-body">
@@ -44,7 +44,7 @@
 											<label class="form-label">Contraseña</label>
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Ingresa tu contraseña" />
 											<small>
-            <a href="index.php">¿Olvido la contraseña?</a>
+            <a href="view/FormOlvidarContrasena.php">¿Olvido la contraseña?</a>
           </small>
 										</div>
 										<div>

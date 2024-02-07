@@ -10,47 +10,47 @@
             $index='';
             $formregistrar='';
             $formcrear='';
+            $formactualizar='';
             switch($tipo){
                     case 1:$index='active';break;
                     case 2:$formregistrar='active';break;
                     case 3:$formcrear='active';break;
-                    case 4:$formUser='active';break;
+                    case 4:$formactualizar='active';break;
+                    case 5:$formUser='active';break;
 
             }
         echo  '
             <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="index.html">
-                    <span class="align-middle">Panel Administracion</span>
+                <a class="sidebar-brand" href="FormProductos.php">
+                    <span class="align-middle">Panel administrativo</span>
                 </a>
 
                 <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                        Menu
-                    </li>
-
+                    <h1>
+                        <li class="sidebar-header">MENU</li>
+                    </h1>
                     <li class="sidebar-item ';echo($index); echo'">
                         <a class="sidebar-link" href="../view/FormProductos.php" >
-                            <i class="align-middle" data-feather="database"></i> <span class="align-middle">Lista Productos</span>
+                            <i class="align-middle" data-feather="database"></i> <span class="align-middle">Lista de productos</span>
                         </a>
                     </li>
                     <li class="sidebar-item ' ;echo($formregistrar);echo'">
                         <a class="sidebar-link" href="../view/FormRegistrar.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
-                            <i class="align-middle"  data-feather="clipboard"></i> <span class="align-middle">Registar Producto</span>
+                            <i class="align-middle"  data-feather="clipboard"></i> <span class="align-middle">Registrar producto</span>
                         </a>
                     </li>
-                
-
-                    <li class="sidebar-item ' ;echo($formcrear);echo'">
-                        <a class="sidebar-link" href="../view/FormCrearUsuario.php" style="';echo ($EstiloG); echo'">
-                <i class="align-middle" data-feather="users"></i> <span class="align-middle">Registrar Usuario ADMIN</span>
-            </a>
+                    
+                    <li class="sidebar-item ' ;echo($formactualizar);echo'">
+                        <a class="sidebar-link" href="../view/FormActualizar.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
+                            <i class="align-middle"  data-feather="clipboard"></i> <span class="align-middle">Actualizar producto</span>
+                        </a>
                     </li>
                     <li class="sidebar-item ' ;echo($formUser);echo'">
-                    <a class="sidebar-link" href="../view/FormListaUsuarios.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
-            <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Lista de USUARIOS</span>
-            </a>
-                </li>
+                        <a class="sidebar-link" href="../view/FormListaUsuarios.php" style="';if($_SESSION['RolUser']==2){echo ($EstiloG);}; echo'">
+                            <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Lista de USUARIOS</span>
+                        </a>
+                    </li>
 
                     
             
@@ -65,11 +65,16 @@
             //         <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ir Pagina de la Tienda</span>
             //     </a>
             // </li>
+            // <li class="sidebar-item ' ;echo($formcrear);echo'">
+            //             <a class="sidebar-link" href="../view/FormCrearUsuario.php" style="';echo ($EstiloG); echo'">
+            //             <i class="align-middle" data-feather="users"></i> <span class="align-middle">Registrar Usuario ADMIN</span>
+            //         </a></li>
         $index='';
         $formregistrar='';
         $formcrear='';
+        $formactualizar='';
     }
-    function BarraSuperior($usuario, $dni, $rol){
+    function BarraSuperior($usuario, $dni, $rol, $path){
         switch($rol){
             case 0: $textrol="Administrador";
                 break;
@@ -94,7 +99,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="user"></i> '; echo"DNI: ". $dni ;echo '</a>
-                            <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="info"></i> '; echo"sesión: ". $textrol ;echo '</a>
+                            <a class="dropdown-item" href="../view/FormProductos.php"><i class="align-middle me-1" data-feather="info"></i> '; echo"Cargo: ". $textrol ;echo '</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item"  href="../controller/CtrlCerrarSesion.php"><i class="align-middle me-1" data-feather="log-out"></i> Cerrar Sesion</a>
                         </div>
